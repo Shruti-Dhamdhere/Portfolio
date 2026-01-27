@@ -5,6 +5,8 @@
   --text: #e6eef6;
   --accent: #4fd1ff;
   --accent-2: #8b5cf6;
+  --accent-hover: #6ee0ff;
+  --accent-2-hover: #9d73ff;
   --container: 1100px;
   --radius: 12px;
   --gap: 1.25rem;
@@ -61,7 +63,7 @@ body{
 .contact-inline{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0;padding:0;list-style:none}
 .contact-inline li{color:var(--muted);font-size:.95rem}
 .contact-inline a{color:var(--accent);text-decoration:none;transition:color 0.2s}
-.contact-inline a:hover{color:#6ee0ff}
+.contact-inline a:hover{color:var(--accent-hover)}
 
 /* Buttons */
 .btn{
@@ -76,7 +78,7 @@ body{
   transition:all 0.3s ease;
 }
 .btn:hover{
-  background:linear-gradient(90deg,#6ee0ff,#9d73ff);
+  background:linear-gradient(90deg,var(--accent-hover),var(--accent-2-hover));
   box-shadow:inset 0 1px 2px rgba(255,255,255,0.3), 0 4px 12px rgba(79,209,255,0.3);
 }
 .btn.ghost{
