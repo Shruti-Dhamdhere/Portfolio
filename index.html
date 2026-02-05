@@ -1,171 +1,105 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shruti Rajkumar Dhamdhere — Portfolio</title>
-  <meta name="description" content="Shruti Rajkumar Dhamdhere — Data Scientist"/>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/images/favicon.png">
-</head>
-<body>
-  <header class="site-header">
-    <nav class="nav container">
-      <a class="brand" href="#">Shruti R. Dhamdhere</a>
-      <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-      <ul id="nav-menu" class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- Summary -->
+<section id="summary" class="container">
+  <h2>Summary</h2>
+  <p class="lead">
+    Data Analyst with 3+ years in supply chain and operations analytics. Skilled in SQL, Python, Tableau, and Power BI to build ETL pipelines, KPI dashboards, and ad hoc analyses that drive operational and financial decisions.
+  </p>
+</section>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>Hello — I’m Shruti Dhamdhere</h1>
-          <p class="lead">Data Scientist specializing in time-series analysis, NLP, and production-ready ML systems. Graduated with a M.S. in Data Architecture &amp; Management at Northeastern University with experience building monitoring and forecasting systems, RAG pipelines, and data platform migrations.</p>
-          <p class="cta">
-            <a class="btn" href="#projects">View projects</a>
-            <a class="btn ghost" href="#contact">Contact me</a>
-          </p>
+<!-- Experience -->
+<section id="experience" class="container">
+  <h2>Experience</h2>
 
-          <ul class="contact-inline">
-            <li>(857)‑313‑5377</li>
-            <li><a href="mailto:shrutidhamdhere789@gmail.com">shrutidhamdhere789@gmail.com</a></li>
-            <li><a href="https://github.com/Shruti-Dhamdhere" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/shruti-dhamdhere" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </div>
+  <article class="role">
+    <h3>Data Scientist</h3>
+    <p class="muted">Humanitarians AI — San Jose, CA &nbsp;|&nbsp; Jan 2026 - Present</p>
+    <ul>
+      <li>Built Python ETL on 10M rows (pandas, SQLAlchemy) to publish validated KPI tables.</li>
+      <li>Performed SQL ad-hoc analyses on exceptions and converted findings into weekly ops actions.</li>
+    </ul>
+  </article>
 
-        <div class="hero-image" aria-hidden="true">
-          <img src="assets/images/profile.jpg" alt="Portrait of Shruti Rajkumar Dhamdhere" loading="lazy" />
-        </div>
-      </div>
-    </section>
+  <article class="role">
+    <h3>Data Analyst</h3>
+    <p class="muted">Northeastern University — Boston, MA &nbsp;|&nbsp; Sep 2023 - Aug 2025</p>
+    <ul>
+      <li>Led 2M-record supply-chain analysis (SQL, Python) to identify delay drivers.</li>
+      <li>Built Python ETL with SQLAlchemy and data-quality checks to produce trusted KPI tables.</li>
+      <li>Developed Tableau dashboards (LOD, parameters) for backlog and utilization analysis.</li>
+      <li>Built time-series models (SciPy, scikit-learn) to forecast late routes.</li>
+    </ul>
+  </article>
 
-    <section id="about" class="container about">
-      <h2>About</h2>
-      <p>I am a Data Scientist with hands-on experience in time-series monitoring, NLP model fine-tuning, and data platform engineering. I enjoy turning noisy instrumented data into actionable insights and building robust pipelines for production. Graduated with a M.S. in Data Architecture and Management at Northeastern University (GPA: 3.8/4.0), and a Graduate Teaching Assistant for DAMG 7250 — Big Data Architecture and Governance.</p>
-    </section>
+  <article class="role">
+    <h3>Data Analyst (Contract)</h3>
+    <p class="muted">Combined Jewish Philanthropies — Boston, MA &nbsp;|&nbsp; Sep 2024 - Dec 2024</p>
+    <ul>
+      <li>Reconciled 4M rows (SQL, pandas), raising reporting accuracy to 99%.</li>
+      <li>Built Tableau views for variance tracking by owner and region.</li>
+      <li>Automated refreshes/audits (Python, requests, openpyxl), saving ~15 hrs/week.</li>
+      <li>Delivered RCA briefs and recommended actions for Ops and Finance.</li>
+    </ul>
+  </article>
 
-    <section id="skills" class="container skills">
-      <h2>Skills</h2>
-      <ul class="skill-list">
-        <li>Python | SQL | Java | Excel</li>
-        <li>Tableau | Power BI | Streamlit</li>
-        <li>AWS | Azure | GCP</li>
-        <li>MySQL | PostgreSQL | Snowflake | BigQuery | Azure Synapse | Neo4j</li>
-        <li>NumPy | Pandas | Scikit-learn | TensorFlow | PyTorch | Hugging Face | LangChain | Flask | NLTK</li>
-        <li>Time-Series Analysis | Statistical Modeling | Causal Inference | Anomaly Detection</li>
-      </ul>
-    </section>
+  <article class="role">
+    <h3>Data Analyst</h3>
+    <p class="muted">Indian Institute of Science Education and Research &nbsp;|&nbsp; Apr 2023 - Jul 2023</p>
+    <ul>
+      <li>Fine-tuned NLP/LLM models on GPU (GCP), achieving BLEU 51 for translation.</li>
+      <li>Built preprocessing and evaluation pipelines and provided stakeholder readouts.</li>
+    </ul>
+  </article>
 
-    <section id="experience" class="container experience">
-      <h2>Experience</h2>
+  <article class="role">
+    <h3>Associate Data Scientist</h3>
+    <p class="muted">Shobi Group — Consulting &nbsp;|&nbsp; Nov 2021 - Jul 2023</p>
+    <ul>
+      <li>Defined SQL KPI logic (on-time, cost/mile, utilization) for client reviews.</li>
+      <li>Built Python ETL (pandas, SQLAlchemy) to unify TMS, events, and invoices.</li>
+      <li>Created Tableau scorecards used by 20 ops leaders to resolve exceptions.</li>
+      <li>Audited invoices, recovered $100K and reduced repeat disputes.</li>
+    </ul>
+  </article>
 
-      <article class="role">
-        <h3>Data Scientist — Northeastern University, Boston, MA</h3>
-        <p class="muted">Jan 2024 – Aug 2025</p>
-        <ul>
-          <li>Developed a time-series system-state monitoring framework classifying 4 operational states using 25 sensors with 10‑minute prediction intervals.</li>
-          <li>Performed sensor behavior analysis and identified a 10‑minute pre-transition window using temporal heatmaps and aligned sensor profiling.</li>
-          <li>Compared 1D/2D CNNs, CNN‑LSTM, XGBoost and Random Forest; ensembled models to improve robustness and achieved 97% accuracy while reducing boundary misclassification.</li>
-        </ul>
-      </article>
+  <article class="role">
+    <h3>Data Analyst Co-op</h3>
+    <p class="muted">Pyibar Private Limited — E‑commerce &nbsp;|&nbsp; Dec 2019 - Nov 2021</p>
+    <ul>
+      <li>Built anomaly checks (Python, SQL), cutting reconciliation errors by 30%.</li>
+      <li>Created Tableau dashboards to track on-time delivery and cost per shipment.</li>
+      <li>Automated Excel KPI packs (openpyxl), saving ~15 hrs/week.</li>
+    </ul>
+  </article>
+</section>
 
-      <article class="role">
-        <h3>Data Analyst Co-op — Combined Jewish Philanthropies, Boston, MA</h3>
-        <p class="muted">Sep 2024 – Dec 2024</p>
-        <ul>
-          <li>Migrated 4M+ CRM records to Salesforce using SQL/Python with audit validations achieving 99% data integrity.</li>
-          <li>Built Power BI dashboards (DAX) to track ROI and fund utilization, supporting oversight of $12M+ annual budgets.</li>
-        </ul>
-      </article>
+<!-- Education -->
+<section id="education" class="container">
+  <h2>Education</h2>
+  <article>
+    <h3>Northeastern University — M.S., Data Architecture & Management</h3>
+    <p class="muted">Sep 2023 - Aug 2025 · GPA: 3.8/4.0<br>Graduate TA — DAMG 7250 (Big Data Analytics & Governance)</p>
+  </article>
+  <article>
+    <h3>Pune University - B.Tech., Electronics & Telecommunication</h3>
+    <p class="muted">Aug 2018 - May 2022 · GPA: 9.4/10</p>
+  </article>
+</section>
 
-      <article class="role">
-        <h3>Research AI Engineer — IISER Kolkata</h3>
-        <p class="muted">Apr 2023 – Jul 2023</p>
-        <ul>
-          <li>Fine-tuned OpenAI GPT‑Davinci and NLLB models for low-resource language translation on an NVIDIA A100; improved translation BLEU to 51 through tuning.</li>
-          <li>Built NLP preprocessing pipelines using NLTK and Hugging Face; optimized for constrained-data settings.</li>
-        </ul>
-      </article>
+<!-- Skills -->
+<section id="skills" class="container">
+  <h2>Skills</h2>
+  <p class="muted">
+    SQL, Python, R, Tableau, Tableau Prep, Power BI, Excel, Databricks, Airflow, AWS, GCP.<br>
+    Pandas, NumPy, SciPy, scikit-learn, SQLAlchemy, Requests, OpenPyXL, Matplotlib, Plotly.<br>
+    ETL, data quality, KPI design, ad hoc analysis, root cause analysis, forecasting, time series.
+  </p>
+</section>
 
-      <article class="role">
-        <h3>Data Scientist — Shobi Group</h3>
-        <p class="muted">Nov 2021 – Jul 2023</p>
-        <ul>
-          <li>Analyzed 8–15M rows of time-stamped machine data to identify drift and instability in process parameters preceding quality failures.</li>
-          <li>Performed machine-level comparative analysis to isolate machines with higher variance and reduced investigation surface for engineers.</li>
-          <li>Delivered Python notebooks and diagnostic visualizations used in on-floor root‑cause reviews.</li>
-        </ul>
-      </article>
-
-      <article class="role">
-        <h3>Data Analyst Co-op — Pyibar Private Limited</h3>
-        <p class="muted">May 2020 – Apr 2021</p>
-        <ul>
-          <li>Analyzed sales and logistics data with SQL &amp; Excel; built dashboards tracking margins and repeat customers, improving operational efficiency by 10%.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="projects" class="container projects">
-      <h2>Projects</h2>
-
-      <div class="featured">
-        <article class="project-card">
-          <h3>Early Warning Analytics for Physical Systems</h3>
-          <p>Analyzed multivariate sensor time-series from the NASA C‑MAPSS turbofan engine dataset to detect early drift and variance changes indicating gradual system degradation. Built detectors and visual diagnostics for early-warning signals.</p>
-        </article>
-
-        <article class="project-card">
-          <h3>Domain-Aware Question Answering (RAG)</h3>
-          <p>Developed an end-to-end RAG pipeline combining semantic vector retrieval and LLMs to produce grounded, context-aware answers—reducing hallucinations versus standalone LLMs.</p>
-        </article>
-      </div>
-
-      <p class="muted">Additional public repositories from my GitHub (auto-loaded):</p>
-      <div id="projects-grid" class="grid">
-        <!-- Project cards are injected by assets/js/main.js -->
-      </div>
-    </section>
-
-    <section id="education" class="container education">
-      <h2>Education</h2>
-      <article>
-        <h3>Northeastern University — Boston, MA</h3>
-        <p class="muted">M.S. Data Architecture and Management | GPA: 3.8/4.0 — Sep 2023 – Aug 2025</p>
-        <p>Graduate Teaching Assistant (DAMG 7250 — Big Data Architecture and Governance)</p>
-      </article>
-
-      <article>
-        <h3>Pune University</h3>
-        <p class="muted">B.Tech — Electronics &amp; Telecommunication | GPA: 9.4/10 — Aug 2018 – May 2022</p>
-      </article>
-    </section>
-
-    <section id="contact" class="container contact">
-      <h2>Contact</h2>
-      <p>If you'd like to work together, feel free to email or call me. I'm open to research and industry opportunities in ML, data science, data engineering, and analytics.</p>
-      <p>
-        <a class="btn" href="mailto:shrutidhamdhere789@gmail.com">Email: shrutidhamdhere789@gmail.com</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/shruti-dhamdhere" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Shruti Rajkumar Dhamdhere — built with HTML, CSS &amp; JavaScript</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
-</body>
-</html>
+<!-- Achievements -->
+<section id="achievements" class="container">
+  <h2>Achievements</h2>
+  <ul class="muted">
+    <li>Gold Medal — IIT Bombay General Championship (Data Analytics)</li>
+    <li>1st place — Society of Women Engineers Data Analyst Competition</li>
+  </ul>
+</section>
