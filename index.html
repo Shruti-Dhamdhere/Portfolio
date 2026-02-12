@@ -3,176 +3,652 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shruti R. Dhamdhere — Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <meta name="description" content="Shruti R. Dhamdhere — Data Analyst / Data Scientist. Supply chain, operations analytics, ETL, dashboards, forecasting." />
+  <title>Shruti Dhamdhere — Data Scientist</title>
+  <meta name="description" content="Shruti R. Dhamdhere — Data Scientist building practical, scalable data systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1e1714;
+      --bg-elevated: #27201c;
+      --bg-card: #312925;
+      --text: #e2e0dc;
+      --text-secondary: #a09e9a;
+      --text-muted: #9ca0b0;
+      --accent: #c48fb0;
+      --accent-light: #d1a0be;
+      --accent-bg: rgba(196, 143, 176, 0.1);
+      --accent-border: rgba(196, 143, 176, 0.22);
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.1);
+      --font-body: 'General Sans', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.2);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.25);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      background: rgba(30, 23, 20, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+
+    .nav-brand {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links { list-style: none; display: flex; gap: 2.25rem; }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-text { max-width: 520px; }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: rise 0.7s var(--ease) 0.1s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--font-body);
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rise 0.7s var(--ease) 0.25s forwards;
+    }
+
+    .hero-name .highlight { color: var(--accent); }
+
+    .hero-pronunciation {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: rise 0.7s var(--ease) 0.4s forwards;
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: rise 0.7s var(--ease) 0.55s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: rise 0.7s var(--ease) 0.7s forwards;
+    }
+
+    .btn {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.7rem 1.75rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-fill { background: var(--accent); color: var(--bg); }
+    .btn-fill:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .hero-portrait {
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rise 0.9s var(--ease) 0.5s forwards;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+    }
+
+    .hero-portrait::after {
+      content: '';
+      position: absolute;
+      top: 16px; left: 16px; right: -16px; bottom: -16px;
+      border: 1px solid var(--accent-border);
+      border-radius: 16px;
+      z-index: -1;
+    }
+
+    section { padding: 5.5rem 0; }
+    .section-rule { width: 100%; height: 1px; background: var(--border); max-width: 1060px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-body);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .about-block { max-width: 720px; }
+    .about-block p { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.25rem; }
+    .about-block p:last-child { margin-bottom: 0; }
+
+    .exp-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      position: sticky;
+      transition: all 0.4s var(--ease);
+      opacity: 0;
+      transform: translateY(25px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .exp-card.visible { opacity: 1; transform: translateY(0); }
+    .exp-card:nth-child(1) { top: 90px; z-index: 6; }
+    .exp-card:nth-child(2) { top: 105px; z-index: 5; }
+    .exp-card:nth-child(3) { top: 120px; z-index: 4; }
+    .exp-card:nth-child(4) { top: 135px; z-index: 3; }
+    .exp-card:nth-child(5) { top: 145px; z-index: 2; }
+    .exp-card:nth-child(6) { top: 160px; z-index: 1; }
+
+    .exp-card:hover { box-shadow: var(--shadow-md); border-color: var(--accent-border); transform: translateY(-2px); }
+
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.15rem; flex-wrap: wrap; gap: 0.5rem; }
+    .exp-title { font-family: var(--font-body); font-size: 1.15rem; font-weight: 700; }
+    .exp-dates { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
+    .exp-company { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.6rem; }
+    .exp-summary { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.4s var(--ease);
+      opacity: 0;
+      transform: translateY(20px);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent-border); }
+
+    .project-marker { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-bottom: 1rem; opacity: 0.7; }
+    .project-card h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; line-height: 1.4; }
+    .project-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.7; flex-grow: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.9rem; }
+    .tag { font-family: var(--font-mono); font-size: 0.65rem; padding: 0.15rem 0.55rem; border-radius: 4px; background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
+
+    .edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .edu-card h3 { font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .edu-card p { font-size: 0.88rem; color: var(--text-secondary); }
+    .edu-card .muted { color: var(--text-muted); font-size: 0.82rem; }
+
+    .skills-cloud { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    .skill {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      transition: all 0.25s;
+    }
+
+    .skill:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-bg); }
+
+    .ach-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .ach-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ach-badge {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .ach-item p { font-size: 0.9rem; color: var(--text-secondary); }
+    .ach-item strong { color: var(--text); }
+
+    .contact-section { text-align: center; padding: 5rem 0 3rem; }
+    .contact-section .section-title { margin-bottom: 0.75rem; }
+
+    .contact-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .contact-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .contact-pill {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.65rem 1.5rem;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .contact-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 900px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    @media (max-width: 700px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .hero-text { max-width: 100%; }
+      .hero-name { font-size: 2.6rem; }
+      .hero-cta { justify-content: center; }
+      .hero-portrait { order: -1; }
+      .hero-portrait img { max-width: 280px; margin: 0 auto; display: block; }
+      .hero-portrait::after { display: none; }
+      .project-grid { grid-template-columns: 1fr; }
+      .edu-row { grid-template-columns: 1fr; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Site header / nav -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="/">Shruti R. Dhamdhere</a>
-      <nav>
-        <ul class="nav-menu" role="menubar">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/">S.D.</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero -->
   <main>
+
     <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <h1>Hi, I'm Shruti!</h1>
-          <p class="lead">
-            Data Scientist and Analyst specializing in supply‑chain and operations analytics, ETL, dashboards, and forecasting.
-          </p>
-
-          <div style="margin:1.25rem 0;">
-            <a class="btn" href="#projects">View projects</a>
-            <a class="btn ghost" href="#contact" style="margin-left:0.75rem">Contact me</a>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Shruti <span class="highlight">Dhamdhere</span></h1>
+          <p class="hero-pronunciation">/ shroo-tea /</p>
+          <p class="hero-bio">Building quiet data systems that do the heavy lifting. Helping teams move faster and decide better.</p>
+          <div class="hero-cta">
+            <a class="btn btn-fill" href="#projects">View Work</a>
+            <a class="btn btn-outline" href="#contact">Say Hello</a>
           </div>
-
-          <ul class="contact-inline" aria-label="contact">
-            <li>(857)-313-5377</li>
-            <li><a href="mailto:shrutidhamdhere789@gmail.com">Email</a></li>
-            <li><a href="https://github.com/Shruti-Dhamdhere" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Portfolio</a></li>
-            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
         </div>
-
-        <div class="hero-image" aria-hidden="true">
-          <!-- keep filename same so no html update required later -->
-          <img src="assets/images/profile.jpg" alt="Portrait of Shruti Rajkumar Dhamdhere" loading="lazy" />
+        <div class="hero-portrait">
+          <img src="assets/images/profile.jpg" alt="Shruti Dhamdhere" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- Summary -->
-    <section id="summary" class="container">
-      <h2>Summary</h2>
-      <p class="lead">
-        Data Analyst with 3+ years in supply chain and operations analytics. Skilled in SQL, Python, Tableau, and Power BI to build ETL pipelines, KPI dashboards, and ad hoc analyses that drive operational and financial decisions.
-      </p>
+    <div class="section-rule"></div>
+
+    <section id="about" class="container">
+      <div class="reveal">
+        <p class="section-eyebrow">About Me</p>
+        <h2 class="section-title">A bit more about me</h2>
+      </div>
+      <div class="about-block reveal">
+        <p>I'm a Data Scientist and Analyst who cares more about practical impact than impressive jargon. Most days, that means cleaning messy data, smoothing out clunky processes, and building systems that help people move faster without thinking harder. I love the craft of making complicated things feel simple and turning "it works" into "it works every time."</p>
+        <p>Good data workflow, to me, is quiet and dependable. It is the kind of infrastructure you only notice when it's missing.</p>
+        <p>Outside of work, I'm a cook, an enthusiastic host, and a professional over-planner of dinners that somehow turn into late nights. I love trying new tech, exploring new cities, and eating like a local wherever I land.</p>
+        <p>Fresh air keeps me sane. So do long walks, good playlists, and unsolicited dog-and-cat encounters. I'm a space nerd at heart. It's a constant reminder that scale changes meaning, and data is where I work with that idea in practice.</p>
+      </div>
     </section>
 
-    <!-- Experience -->
+    <div class="section-rule"></div>
+
     <section id="experience" class="container">
-      <h2>Experience</h2>
+      <div class="reveal">
+        <p class="section-eyebrow">Experience</p>
+        <h2 class="section-title">Where I've worked</h2>
+      </div>
+      <div class="exp-stack">
 
-      <article class="role">
-        <h3>Data Scientist</h3>
-        <p class="muted">Humanitarians AI — San Jose, CA &nbsp;|&nbsp; Jan 2026 - Present</p>
-        <ul>
-          <li>Built Python ETL on 10M rows (pandas, SQLAlchemy) to publish validated KPI tables.</li>
-          <li>Performed SQL ad-hoc analyses on exceptions and converted findings into weekly ops actions.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Data Scientist</h3>
+            <span class="exp-dates">Jan 2026 -- Present</span>
+          </div>
+          <p class="exp-company">Humanitarians AI, Boston</p>
+          <p class="exp-summary">Building ML models for anomaly detection on high-dimensional sensor data and creating dashboards that track data quality across 20+ KPIs for engineering teams.</p>
+        </div>
 
-      <article class="role">
-        <h3>Data Analyst</h3>
-        <p class="muted">Northeastern University — Boston, MA &nbsp;|&nbsp; Sep 2023 - Aug 2025</p>
-        <ul>
-          <li>Led 2M-record supply-chain analysis (SQL, Python) to identify delay drivers.</li>
-          <li>Built Python ETL with SQLAlchemy and data-quality checks to produce trusted KPI tables.</li>
-          <li>Developed Tableau dashboards (LOD, parameters) for backlog and utilization analysis.</li>
-          <li>Built time-series models (SciPy, scikit-learn) to forecast late routes.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Data Scientist</h3>
+            <span class="exp-dates">Jan 2024 -- Aug 2025</span>
+          </div>
+          <p class="exp-company">Northeastern University, Boston</p>
+          <p class="exp-summary">Architected a real-time ML pipeline on AWS processing 500+ events/sec at sub-200ms latency with automated retraining, model versioning, and containerized CI/CD workflows.</p>
+        </div>
 
-      <article class="role">
-        <h3>Data Analyst (Contract)</h3>
-        <p class="muted">Combined Jewish Philanthropies — Boston, MA &nbsp;|&nbsp; Sep 2024 - Dec 2024</p>
-        <ul>
-          <li>Reconciled 4M rows (SQL, pandas), raising reporting accuracy to 99%.</li>
-          <li>Built Tableau views for variance tracking by owner and region.</li>
-          <li>Automated refreshes/audits (Python, requests, openpyxl), saving ~15 hrs/week.</li>
-          <li>Delivered RCA briefs and recommended actions for Ops and Finance.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Data Analyst Co-op</h3>
+            <span class="exp-dates">Sep 2024 -- Dec 2024</span>
+          </div>
+          <p class="exp-company">Combined Jewish Philanthropies, Boston</p>
+          <p class="exp-summary">Migrated 4M+ records to Snowflake at 99% data integrity and built Tableau dashboards for stakeholder oversight of $12M+ in annual programs.</p>
+        </div>
 
-      <article class="role">
-        <h3>Data Analyst</h3>
-        <p class="muted">Indian Institute of Science Education and Research &nbsp;|&nbsp; Apr 2023 - Jul 2023</p>
-        <ul>
-          <li>Fine-tuned NLP/LLM models on GPU (GCP), achieving BLEU 51 for translation.</li>
-          <li>Built preprocessing and evaluation pipelines and provided stakeholder readouts.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Research Data Analyst</h3>
+            <span class="exp-dates">Apr 2023 -- Jul 2023</span>
+          </div>
+          <p class="exp-company">Indian Institute of Science Education and Research (IISER) Kolkata, India</p>
+          <p class="exp-summary">Fine-tuned GPT-Davinci and NLLB models on low-resource languages using A100 GPU. Performed data preprocessing, tokenization, and hyperparameter tuning to achieve a BLEU score of 51.</p>
+        </div>
 
-      <article class="role">
-        <h3>Associate Data Scientist</h3>
-        <p class="muted">Shobi Group — Consulting &nbsp;|&nbsp; Nov 2021 - Jul 2023</p>
-        <ul>
-          <li>Defined SQL KPI logic (on-time, cost/mile, utilization) for client reviews.</li>
-          <li>Built Python ETL (pandas, SQLAlchemy) to unify TMS, events, and invoices.</li>
-          <li>Created Tableau scorecards used by 20 ops leaders to resolve exceptions.</li>
-          <li>Audited invoices, recovered $100K and reduced repeat disputes.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Data Scientist</h3>
+            <span class="exp-dates">Nov 2021 -- Jul 2023</span>
+          </div>
+          <p class="exp-company">Shobi Group, Pune</p>
+          <p class="exp-summary">Built manufacturing data pipelines on Databricks and ClickHouse processing 50M+ records, developed ML models for defect prediction, and created self-serve dashboards used daily by production teams.</p>
+        </div>
 
-      <article class="role">
-        <h3>Data Analyst Co-op</h3>
-        <p class="muted">Pyibar Private Limited — E‑commerce &nbsp;|&nbsp; Dec 2019 - Nov 2021</p>
-        <ul>
-          <li>Built anomaly checks (Python, SQL), cutting reconciliation errors by 30%.</li>
-          <li>Created Tableau dashboards to track on-time delivery and cost per shipment.</li>
-          <li>Automated Excel KPI packs (openpyxl), saving ~15 hrs/week.</li>
-        </ul>
-      </article>
+        <div class="exp-card">
+          <div class="exp-header">
+            <h3 class="exp-title">Data Analyst Co-op</h3>
+            <span class="exp-dates">Dec 2019 -- Nov 2021</span>
+          </div>
+          <p class="exp-company">Pyibar Private Limited</p>
+          <p class="exp-summary">Built anomaly detection checks and Tableau dashboards for e-commerce logistics, cutting reconciliation errors by 30% and automating weekly reporting.</p>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Education -->
-    <section id="education" class="container">
-      <h2>Education</h2>
-      <article>
-        <h3>Northeastern University — M.S., Data Architecture & Management</h3>
-        <p class="muted">Sep 2023 - Aug 2025 · GPA: 3.8/4.0<br>Graduate TA — DAMG 7250 (Big Data Analytics & Governance)</p>
-      </article>
-      <article>
-        <h3>Pune University - B.Tech., Electronics & Telecommunication</h3>
-        <p class="muted">Aug 2018 - May 2022 · GPA: 9.4/10</p>
-      </article>
+    <div class="section-rule"></div>
+
+    <section id="projects" class="container">
+      <div class="reveal">
+        <p class="section-eyebrow">Projects</p>
+        <h2 class="section-title">Things I've built</h2>
+      </div>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Early Warning Analytics for Physical Systems</h3>
+          <p>Analyzed multivariate sensor time-series from NASA's C-MAPSS turbofan dataset to detect early drift and variance changes signaling system degradation.</p>
+          <div class="project-tags"><span class="tag">Time-Series</span><span class="tag">Sensor Data</span><span class="tag">Anomaly Detection</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Device State Prediction</h3>
+          <p>Predicted device states from sensor data at 97% accuracy using ensemble models (XGBoost, Random Forest, CNN-LSTM) with temporal heatmap analysis.</p>
+          <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">CNN-LSTM</span><span class="tag">Classification</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>TrendSage AI</h3>
+          <p>Pipeline using YouTube API, OpenAI embeddings, and K-means to cluster 100K+ product videos. Forecasted trend momentum with Prophet and visualized in Tableau.</p>
+          <div class="project-tags"><span class="tag">Prophet</span><span class="tag">K-Means</span><span class="tag">OpenAI</span><span class="tag">Tableau</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Personalized Content Recommender</h3>
+          <p>Processed 1M Pinterest pins with PySpark into Snowflake. Fine-tuned SBERT + ResNet hybrid lifting CTR 18%. Deployed FastAPI + Kafka at sub-250ms P95.</p>
+          <div class="project-tags"><span class="tag">PySpark</span><span class="tag">Snowflake</span><span class="tag">FastAPI</span><span class="tag">Kafka</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Domain-Aware QA System</h3>
+          <p>End-to-end RAG pipeline combining semantic vector retrieval and LLMs for grounded, context-aware answers with reduced hallucinations.</p>
+          <div class="project-tags"><span class="tag">RAG</span><span class="tag">LLMs</span><span class="tag">Vector Search</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Data-Quality ETL Framework</h3>
+          <p>Dockerized ETL with 40+ validation rules on IMF GDP datasets, audit logs to SQL Server, and a Power BI error-KPI board cutting downstream defects.</p>
+          <div class="project-tags"><span class="tag">Docker</span><span class="tag">ETL</span><span class="tag">Power BI</span><span class="tag">SQL Server</span></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-marker"></div>
+          <h3>Buffett-Agent</h3>
+          <p>Fine-tuned a Buffett-style LLM agent on 25K Q&amp;A pairs with LoRA/QLoRA, achieving 8.8% BERTScore gain in persona-aligned reasoning.</p>
+          <div class="project-tags"><span class="tag">LoRA</span><span class="tag">Fine-tuning</span><span class="tag">LLM</span></div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="container">
-      <h2>Skills</h2>
-      <p class="muted">
-        SQL, Python, R, Tableau, Tableau Prep, Power BI, Excel, Databricks, Airflow, AWS, GCP.<br>
-        Pandas, NumPy, SciPy, scikit-learn, SQLAlchemy, Requests, OpenPyXL, Matplotlib, Plotly.<br>
-        ETL, data quality, KPI design, ad hoc analysis, root cause analysis, forecasting, time series.
-      </p>
+    <div class="section-rule"></div>
+
+    <section id="education" class="container reveal">
+      <p class="section-eyebrow">Education</p>
+      <h2 class="section-title">Where I studied</h2>
+      <div class="edu-row">
+        <div class="edu-card">
+          <h3>Northeastern University</h3>
+          <p><strong>M.S., Data Architecture &amp; Management</strong></p>
+          <p>GPA: 3.8/4.0</p>
+          <p class="muted" style="margin-top:0.4rem;">Graduate TA — Big Data Architecture &amp; Governance</p>
+        </div>
+        <div class="edu-card">
+          <h3>Pune University</h3>
+          <p><strong>B.Tech., Electronics &amp; Telecommunication</strong></p>
+          <p>GPA: 9.4/10</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Achievements -->
-    <section id="achievements" class="container">
-      <h2>Achievements</h2>
-      <ul class="muted">
-        <li>Gold Medal — IIT Bombay General Championship (Data Analytics)</li>
-        <li>1st place — Society of Women Engineers Data Analyst Competition</li>
-      </ul>
+    <div class="section-rule"></div>
+
+    <section id="skills" class="container reveal">
+      <p class="section-eyebrow">Toolkit</p>
+      <h2 class="section-title">What I work with</h2>
+      <div class="skills-cloud">
+        <span class="skill">Python</span><span class="skill">SQL</span><span class="skill">Java</span><span class="skill">Excel</span><span class="skill">Tableau</span><span class="skill">Power BI</span><span class="skill">Streamlit</span><span class="skill">R Shiny</span><span class="skill">Python Dash</span><span class="skill">Plotly</span><span class="skill">AWS</span><span class="skill">Azure</span><span class="skill">GCP</span><span class="skill">MySQL</span><span class="skill">ClickHouse</span><span class="skill">PostgreSQL</span><span class="skill">Snowflake</span><span class="skill">BigQuery</span><span class="skill">Azure Synapse</span><span class="skill">Neo4j</span><span class="skill">NumPy</span><span class="skill">Pandas</span><span class="skill">Scikit-learn</span><span class="skill">TensorFlow</span><span class="skill">PyTorch</span><span class="skill">Hugging Face</span><span class="skill">LangChain</span><span class="skill">NLTK</span><span class="skill">Machine Learning</span><span class="skill">Data Wrangling</span><span class="skill">Time-Series</span><span class="skill">Statistical Process Control</span><span class="skill">Anomaly Detection</span>
+      </div>
     </section>
 
-    <!-- Contact (simple anchor target) -->
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <p class="muted">
-        Email: <a href="mailto:shrutidhamdhere789@gmail.com">shrutidhamdhere789@gmail.com</a><br>
-        Phone: (857)-313-5377
-      </p>
+    <div class="section-rule"></div>
+
+    <section class="container reveal">
+      <p class="section-eyebrow">Recognition</p>
+      <h2 class="section-title">A few highlights</h2>
+      <div class="ach-list">
+        <div class="ach-item"><div class="ach-badge">Au</div><p><strong>Gold Medal</strong> — Data Analytics, IIT Bombay General Championship</p></div>
+        <div class="ach-item"><div class="ach-badge">Ag</div><p><strong>Silver Medal</strong> — Opensoft, IIT Bombay General Championship</p></div>
+        <div class="ach-item"><div class="ach-badge">1st</div><p><strong>1st Place</strong> — Society of Women Engineers Business Analyst Competition</p></div>
+      </div>
     </section>
+
+    <div class="section-rule"></div>
+
+    <section id="contact" class="contact-section container reveal">
+      <p class="section-eyebrow">Get in touch</p>
+      <h2 class="section-title">Let's connect</h2>
+      <p class="contact-subtitle">Open to data science roles, collaborations, or just a good conversation about messy datasets and clean pipelines.</p>
+      <div class="contact-row">
+        <a class="contact-pill" href="mailto:dhamdhereshruti403@gmail.com">Email</a>
+        <a class="contact-pill" href="tel:+18573135377">(857)-313-5377</a>
+        <a class="contact-pill" href="https://www.linkedin.com/in/shruti-dhamdhere" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="contact-pill" href="https://github.com/Shruti-Dhamdhere" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer container">
-    <small class="muted">© Shruti R. Dhamdhere</small>
+  <footer class="container">
+    <small>Shruti Dhamdhere, 2026</small>
   </footer>
+
+  <script>
+    const els = document.querySelectorAll('.reveal, .exp-card, .project-card');
+    let pi = 0, ei = 0;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let d = 0;
+          if (entry.target.classList.contains('project-card')) { d = pi * 80; pi++; }
+          else if (entry.target.classList.contains('exp-card')) { d = ei * 120; ei++; }
+          setTimeout(() => entry.target.classList.add('visible'), d);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => obs.observe(el));
+  </script>
+
 </body>
 </html>
